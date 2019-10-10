@@ -46,7 +46,7 @@ def generate_image(text: str, path=None):
     px, py = origin_pos
     sx, sy = image2.size
     im.paste(image2, (px, py, px + sx, py + sy), image2)
-    draw_subtitle(im, f"{900-length}/{length}")
+    draw_subtitle(im, f"{length}/900")
     # im.save("results/final.png", "png")
     return image_to_byte_array(im)
 
