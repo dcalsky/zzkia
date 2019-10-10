@@ -1,5 +1,5 @@
 {
   "builds": [{ "src": "*.py", "use": "@now/python" }],
   "routes": [{ "src": "/", "dest": "/index.py" }],
-  "regions": ["hkg1", "hnd1"]
+  "regions": ["tpe1", "hnd1", "sfo1"]
 }
