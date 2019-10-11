@@ -1,0 +1,29 @@
+logLevel = "INFO"
+defaultEntryPoints = ["http"]
+
+# Entrypoints, http and https
+[entryPoints]
+  # http should be redirected to https
+  [entryPoints.http]
+  address = ":5003"
+
+[file]
+[backends]
+  [backends.api]
+    [backends.api.servers.server1]
+      url = "http://api:3000"
+  [backends.web]
+    [backends.web.servers.server1]
+      url = "http://web:3000"
+
+[frontends]
+  [frontends.api]
+    backend = "api"
+    [frontends.api.routes.dr1]
+      rule = "PathPrefix:/api"
+  [frontends.web]
+    backend = "web"
+    [frontends.web.routes.dr1]
+      rule = "PathPrefix:/"
+
+

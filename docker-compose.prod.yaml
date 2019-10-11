@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  traefik:
+    build:
+      context: ./traefik
+    ports:
+      - 5003:5003
+  api:
+    build:
+      context: ./api
+    environment:
+      - PRODCUTION=1
+  web:
+    build:
+      context: .
+    volumes:
+      - .:/app
+    command: npm run build && npm run start
