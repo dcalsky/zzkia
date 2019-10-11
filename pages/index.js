@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import demoImage from "./demo.png";
 
 import axios from "axios";
 
@@ -11,7 +10,7 @@ const Home = () => {
     if (loading) return;
     setLoading(true);
     axios
-      .post("./api/index", {
+      .post("./api/nokia", {
         text
       })
       .then(res => {
@@ -162,38 +161,14 @@ const Home = () => {
           transform: rotate(90deg);
         }
 
-        .block-box {
-          position: relative;
-          text-align: center;
-          width: 600px;
-          margin: 0 auto;
-          padding-top: 20px;
-          padding-bottom: 40px;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.14);
-        }
-
-        .block .page {
-          font-size: 1.6rem;
-        }
-
-        .history-message {
-          text-align: center;
-        }
-
         @media screen and (max-width: 768px) {
           .container {
             padding: 0;
             width: 100%;
           }
-          .block-box {
+          .image {
             width: 100%;
-          }
-          .block-box .block {
-            width: 50%;
-            height: 50vw;
-          }
-          #message-pool {
-            max-width: calc(100vw - 30px);
+            height: auto;
           }
         }
       `}</style>
