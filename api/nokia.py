@@ -13,7 +13,7 @@ subtitle_pos = (790, 320)
 body_color = (0, 0, 0, 255)
 subtitle_color = (129, 212, 250, 255)
 line_rotate = -9.1
-font = ImageFont.truetype("api/fonts/1.ttf", font_size)
+font = ImageFont.truetype("fonts/1.ttf", font_size)
 
 
 def image_to_byte_array(image: Image):
@@ -44,7 +44,7 @@ def draw_subtitle(im, text: str):
 
 
 def generate_image(text: str, path=None):
-    im = Image.open(path or "api/images/3.png")
+    im = Image.open(path or "images/3.png")
     length = len(text)
     width, height = font.getsize(text)
     lines = textwrap.wrap(text, width=line_width)
