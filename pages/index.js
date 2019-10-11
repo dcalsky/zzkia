@@ -8,6 +8,7 @@ const Home = () => {
   const [img, setImg] = useState("");
   const [loading, setLoading] = useState(false);
   function generate() {
+    if (loading) return;
     setLoading(true);
     axios
       .post("./api/index", {
