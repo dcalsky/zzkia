@@ -1,0 +1,122 @@
+body {
+  margin: 0;
+  font-family: "Roboto", Arial, sans-serif;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  background: #f5efef;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 100px;
+}
+
+.title {
+  font-size: 1.7rem;
+  color: #666666;
+}
+
+.desc {
+  font-size: 0.9rem;
+  color: #9bc788;
+}
+
+.tool {
+  text-align: center;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+}
+
+.tool .instruct {
+  border: none;
+  width: 100%;
+  background: #fefefe;
+  border-radius: 40px;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  outline: none;
+  font-size: 13px;
+  color: #5a6674;
+  padding: 10px 15px;
+}
+
+.input {
+  position: relative;
+  width: 300px;
+  height: 38px;
+  margin: 0 auto;
+}
+
+.input #visit {
+  position: absolute;
+  right: 0;
+  height: 50px;
+  width: 50px;
+  top: -7px;
+  transition: all 0.3s;
+}
+
+.visit > svg {
+  height: 100%;
+  width: 100%;
+  fill: #e57373;
+}
+
+.visit:hover {
+  transform: rotate(90deg);
+}
+
+.block-box {
+  position: relative;
+  text-align: center;
+  width: 600px;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+}
+
+.block .page {
+  font-size: 1.6rem;
+}
+
+.history-message {
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0;
+    width: 100%;
+  }
+  .block-box {
+    width: 100%;
+  }
+  .block-box .block {
+    width: 50%;
+    height: 50vw;
+  }
+  #message-pool {
+    max-width: calc(100vw - 30px);
+  }
+}
