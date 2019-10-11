@@ -16,4 +16,4 @@ services:
       context: .
     volumes:
       - .:/app
-    command: npm run build && npm run start
+    command: npm run prod
