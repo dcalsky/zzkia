@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Head from "next/head";
 import axios from "axios";
 
 const Home = () => {
@@ -21,6 +21,10 @@ const Home = () => {
   const ImageSrc = img ? `data:image/png;base64,${img}` : "/demo.png";
   return (
     <div className="container">
+      <Head>
+        <title>ZZKIA: Nokia message generator</title>
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+      </Head>
       <div className="tool">
         <h1 className="title">ZZKIA</h1>
         <h2 className="desc">诺基亚短信图片生成器</h2>
@@ -42,6 +46,19 @@ const Home = () => {
 
       <div className="image-box">
         <img className="image" src={ImageSrc} alt="zzkia" />
+      </div>
+
+      <div className="github">
+        <a
+          className="github-button"
+          href="https://github.com/dcalsky/zzkia"
+          data-color-scheme="no-preference: light; light: light; dark: light;"
+          data-size="large"
+          data-show-count="true"
+          aria-label="Star dcalsky/zzkia on GitHub"
+        >
+          Star
+        </a>
       </div>
 
       <style jsx global>{`
@@ -84,7 +101,10 @@ const Home = () => {
         html {
           box-sizing: border-box;
         }
-
+        .github {
+          margin: 10px 0;
+          text-align: center;
+        }
         button {
           cursor: pointer;
           outline: none;
