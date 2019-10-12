@@ -16,12 +16,6 @@ max_line_width = 680
 font = ImageFont.truetype("fonts/1.ttf", font_size)
 
 
-def split_text(text_width, text):
-    lines = []
-    while text_width > max_line_width:
-        text_width -= 640
-
-
 def image_to_byte_array(image: Image):
     imgByteArr = io.BytesIO()
     image.save(imgByteArr, format=image.format)
