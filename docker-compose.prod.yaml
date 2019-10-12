@@ -10,7 +10,7 @@ services:
     build:
       context: ./api
     environment:
-      - PRODCUTION=1
+      - PRODUCTION=1
   web:
     build:
       context: .
