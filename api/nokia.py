@@ -1,19 +1,25 @@
-import textwrap
 import base64
 import io
 import os
 from typing import Tuple
+from collections import deque
 from PIL import Image, ImageFont, ImageDraw, ImageOps
 
 font_size = 70
 line_gap = 20
-line_width = 9
-body_pos = (260, 340)
+body_pos = (205, 340)
 subtitle_pos = (790, 320)
 body_color = (0, 0, 0, 255)
 subtitle_color = (129, 212, 250, 255)
-line_rotate = -9.1
+line_rotate = -9.8
+max_line_width = 680
 font = ImageFont.truetype("fonts/1.ttf", font_size)
+
+
+def split_text(text_width, text):
+    lines = []
+    while text_width > max_line_width:
+        text_width -= 640
 
 
 def image_to_byte_array(image: Image):
@@ -47,8 +53,24 @@ def generate_image(text: str, path=None):
     im = Image.open(path or "images/3.png")
     length = len(text)
     width, height = font.getsize(text)
-    lines = textwrap.wrap(text, width=line_width)
-    image2 = Image.new("RGBA", (width, (height + line_gap) * len(lines)))
+    current_width = 0
+    lines = []
+    line = ""
+    q = deque(text)
+
+    while q:
+        word = q.popleft()
+        width, _ = font.getsize(word)
+        current_width += width
+        if current_width >= max_line_width:
+            q.appendleft(word)
+            lines.append(line)
+            current_width = 0
+            line = ""
+        else:
+            line += word
+    lines.append(line)
+    image2 = Image.new("RGBA", (max_line_width, 450))
     draw2 = ImageDraw.Draw(image2)
     for i, line in enumerate(lines):
         draw2.text((0, i * (height + line_gap)), text=line, font=font, fill=body_color)
