@@ -6,6 +6,8 @@ from sanic.response import raw
 app = Sanic()
 
 PRODUCTION = bool(os.environ.get("PRODUCTION"))
+debug = False if PRODUCTION else True
+workers = 1 if debug else os.cpu_count()
 
 
 @app.post("/api/nokia")
@@ -14,5 +16,5 @@ async def index(request):
     return raw(generate_image(text))
 
 
-app.run(host="0.0.0.0", port=3000, debug=False if PRODUCTION else True)
+app.run(host="0.0.0.0", port=3000, debug=debug, workers=workers)
 
