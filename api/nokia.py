@@ -14,6 +14,7 @@ subtitle_color = (129, 212, 250, 255)
 line_rotate = -9.8
 max_line_width = 680
 font = ImageFont.truetype("fonts/1.ttf", font_size)
+origin_im = Image.open("images/3.png")
 
 
 def image_to_byte_array(image: Image):
@@ -43,8 +44,7 @@ def draw_subtitle(im, text: str):
     im.paste(image2, (px, py, px + sx, py + sy), image2)
 
 
-def generate_image(text: str, path=None):
-    im = Image.open(path or "images/3.png")
+def generate_image(text: str):
     length = len(text)
     width, height = font.getsize(text)
     current_width = 0
@@ -72,8 +72,8 @@ def generate_image(text: str, path=None):
 
     px, py = body_pos
     sx, sy = image2.size
-    im.paste(image2, (px, py, px + sx, py + sy), image2)
-    draw_subtitle(im, f"{length}/900")
-    # im.save("results/final.png", "png")
-    return im_2_b64(im)
+    origin_im.paste(image2, (px, py, px + sx, py + sy), image2)
+    draw_subtitle(origin_im, f"{length}/900")
+    # origin_im.save("results/final.png", "png") Save as local file
+    return im_2_b64(origin_im)
 
