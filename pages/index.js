@@ -18,6 +18,11 @@ const Home = () => {
         setLoading(false);
       });
   }
+  function onInputKeyPress(e) {
+    if (e.key === "Enter") {
+      generate()
+    } 
+  }
   const ImageSrc = img ? `data:image/png;base64,${img}` : "/demo.png";
   return (
     <div className="container">
@@ -34,6 +39,7 @@ const Home = () => {
             placeholder="输入您想生成的短信文字"
             type="text"
             value={text}
+            onKeyPress={onInputKeyPress}
             onChange={e => setText(e.target.value)}
           />
         </div>
