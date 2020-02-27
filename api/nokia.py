@@ -7,7 +7,7 @@ from PIL import Image, ImageFont, ImageDraw, ImageOps
 
 font_size = 70
 line_gap = 20
-body_pos = (205, 340)
+body_pos = (200, 330)
 subtitle_pos = (790, 320)
 body_color = (0, 0, 0, 255)
 subtitle_color = (129, 212, 250, 255)
