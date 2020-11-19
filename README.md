@@ -2,12 +2,6 @@
 
 Generate the old Nokia message screenshot.
 
-## DEMO
-
-Demo site: https://zzkia.noddl.me:8020
-
-Demo picture: ![](./public/demo.png)
-
 ## Development
 
 WEB CONTAINER IS RUNNING ON THE **5003** PORT.
@@ -23,3 +17,5 @@ Prod Mode:
 ```
 $ docker-compose -f docker-compose.prod.yaml up -d
 ```
+
+Demo picture: ![](./public/demo.png)
