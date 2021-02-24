@@ -8,9 +8,12 @@
     "prod": "npm run build && npm run start"
   },
   "dependencies": {
-    "axios": "^0.20.0",
-    "next": "^9.5.5",
+    "axios": "^0.21.1",
+    "next": "^10.0.7",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
+  },
+  "devDependencies": {
+    "vercel": "^21.2.3"
   }
 }

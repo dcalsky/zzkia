@@ -3,7 +3,7 @@ from nokia import generate_image
 from sanic import Sanic
 from sanic.response import raw
 
-app = Sanic()
+app = Sanic(name='nokia')
 
 PRODUCTION = bool(os.environ.get("PRODUCTION"))
 debug = False if PRODUCTION else True
